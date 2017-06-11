@@ -59,6 +59,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import retrofit.RestAdapter;
@@ -331,6 +332,12 @@ public class MainActivity extends RoboActivity implements ObdProgressListener, L
         context = this.getApplicationContext();
         // create a log instance for use by this application
         triplog = TripLog.getInstance(context);
+
+        Locale myLocale = new Locale("uk");
+        Locale.setDefault(myLocale);
+        android.content.res.Configuration config = new android.content.res.Configuration();
+        config.locale = myLocale;
+        context.getResources().updateConfiguration(config, context.getResources().getDisplayMetrics());
     }
 
     @Override
